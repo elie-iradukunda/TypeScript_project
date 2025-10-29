@@ -1,7 +1,7 @@
 "use strict";
 const title = document.querySelector('#title');
 if (title) {
-    title.textContent = 'Hello TypeScript by elie';
+    title.textContent = 'Hello TypeScript by elie ❤️👋';
 }
 const reviews = [
     {
@@ -23,6 +23,19 @@ const reviews = [
         date: '27-03-2021'
     },
 ];
+const user = {
+    name: "elie",
+    age: 50,
+    isPassed: true
+};
+let student;
+student = {
+    name: "emmy",
+    age: 80,
+    isPasses: true
+};
+console.log(`this student is called ${student.name} and is ${student.age} years old`);
+console.log(user.age);
 const reviewTotalDisplay = document.querySelector('#reviews');
 function showReviewTotal(value, reviewer, isLoyalty) {
     if (reviewTotalDisplay) {
@@ -33,3 +46,16 @@ function showReviewTotal(value, reviewer, isLoyalty) {
 if (reviews.length > 0) {
     showReviewTotal(reviews.length, reviews[1].name, reviews[1].loyaltyUser);
 }
+const you = {
+    userName: "Elie",
+    isReturning: true
+};
+function populateUser(userName, isReturning) {
+    if (isReturning) {
+        title.innerHTML = "Welcome back " + userName + "🤣🤣";
+    }
+    else {
+        title.innerHTML = "Welcome";
+    }
+}
+populateUser(you.userName, you.isReturning);
