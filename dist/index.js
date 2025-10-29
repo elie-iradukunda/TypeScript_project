@@ -36,6 +36,13 @@ student = {
 };
 console.log(`this student is called ${student.name} and is ${student.age} years old`);
 console.log(user.age);
+const myCar = {
+    name: "TOYOTA",
+    brand: "cocola",
+    model: 2020,
+    isNew: true
+};
+console.log(myCar.isNew);
 const reviewTotalDisplay = document.querySelector('#reviews');
 function showReviewTotal(value, reviewer, isLoyalty) {
     if (reviewTotalDisplay) {
@@ -59,3 +66,25 @@ function populateUser(userName, isReturning) {
     }
 }
 populateUser(you.userName, you.isReturning);
+let inputs = document.getElementById('todo');
+let button = document.getElementById('add');
+let lists = document.getElementsByClassName('list')[0];
+let deleteButton = document.getElementById('delete');
+button.addEventListener("click", () => {
+    if (inputs.value != "") {
+        const newItem = document.createElement('li');
+        newItem.textContent = inputs.value;
+        lists.appendChild(newItem);
+        inputs.value = '';
+    }
+    else {
+        alert("input not found");
+    }
+});
+deleteButton.addEventListener("click", () => {
+    const selectedItems = Array.from(lists.children)
+        .filter(item => item.style.textDecoration === "line-through");
+    selectedItems.forEach(item => {
+        lists.removeChild(item);
+    });
+});

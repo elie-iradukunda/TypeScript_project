@@ -48,6 +48,23 @@ console.log(`this student is called ${student.name} and is ${student.age} years 
 console.log(user.age);
 
 
+type Car={
+    name:string,
+    brand:string,
+    model:number,
+    isNew:boolean
+}
+const myCar:Car={
+    name:"TOYOTA",
+    brand:"cocola",
+    model:2020,
+    isNew:true
+}
+
+console.log(myCar.isNew)
+
+
+
 const reviewTotalDisplay = document.querySelector('#reviews') as HTMLElement;
 
 function showReviewTotal(value: number, reviewer: string, isLoyalty: boolean) {
@@ -78,3 +95,35 @@ function populateUser(userName:string,isReturning:boolean){
 }
 
 populateUser(you.userName,you.isReturning);
+
+
+
+
+let inputs = document.getElementById('todo') as HTMLInputElement;
+let button = document.getElementById('add') as HTMLButtonElement;
+let lists = document.getElementsByClassName('list')[0] as HTMLUListElement;
+let deleteButton=document.getElementById('delete') as HTMLButtonElement;
+button.addEventListener("click", () => {
+
+    if (inputs.value != "") {
+        const newItem = document.createElement('li');
+        newItem.textContent = inputs.value;
+        lists.appendChild(newItem);
+        inputs.value='';
+    }
+    else{
+        alert("input not found");
+    }
+    
+
+});
+
+
+
+deleteButton.addEventListener("click", () => {
+    const selectedItems = Array.from(lists.children)
+        .filter(item => (item as HTMLElement).style.textDecoration === "line-through");
+    selectedItems.forEach(item => {
+        lists.removeChild(item);
+    });
+});
